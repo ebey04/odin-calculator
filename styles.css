@@ -19,9 +19,9 @@
 #screen{
     border: 3px solid black;
     width: 75%;
-    height: 30vh;
+    height: 20vh;
     margin: 2rem;
-    background-color: rgb(242, 241, 240);
+    background-color: rgb(250, 248, 225);
     border-radius: 10px;
 }
 
@@ -29,14 +29,21 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 25px;
-
     width: 75%;
     margin: 2rem;
 }
 
+.buttons:hover, .clear:hover{
+    cursor: pointer;
+    box-shadow: 4px 4px 10px yellow;
+}
+
+.buttons:focus, .clear:focus{
+    border: 7px dotted #F62681;
+}
+
 .clear{
     display: grid;
-    grid-column-start: 2;
     grid-column: 2/4;
     padding: 20px;
     border-radius: 8px;
@@ -44,6 +51,7 @@
     background-color: rgb(244, 88, 83);
     box-shadow: 3px 3px 5px grey;
     font-size: 1.5rem;;
+    font-family: sans-serif;
 }
 
 .buttons{
@@ -51,6 +59,7 @@
     border-radius: 8px;
     font-weight: bolder;
     box-shadow: 3px 3px 5px grey;
-    background-color: rgb(218, 199, 199);
-    font-size: 1.2rem;
+    background-color: rgb(229, 226, 226);
+    font-size: 1.5rem;
+    font-family: sans;
 }
