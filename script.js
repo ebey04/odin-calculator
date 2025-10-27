@@ -33,3 +33,9 @@ function operate(n1, n2, op) {
        return  division(n1, n2);
     }
 }
+
+const screen = document.getElementById("screen");
+
+function displayPop() {
+    screen.textContent = 
+}
