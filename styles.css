@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#calculator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    height: 80vh;
+    width: 90%;
+}
+
+#screen{
+    border: 3px solid black;
+    width: 75%;
+    height: 20vh;
+    margin: 1rem;
+}
+
+#btns{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+
+    width: 75%;
+    ;
+}
