@@ -6,7 +6,7 @@ This project focuses on practicing JavaScript functions, DOM manipulation, and e
 ---
 
 ## 🚀 Live Demo
-View it here: *(insert your live GitHub Pages link)*
+View it here: *(https://ebey04.github.io/odin-calculator/)*
 
 ---
 
