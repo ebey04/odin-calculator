@@ -47,45 +47,49 @@ const buttons = document.getElementById("btns");
 let currentInput = "";
 
 buttons.addEventListener("click", (e) => {
-        if (e.target.classList.contains("buttons")) {
-            if (e.target.classList.contains("number")) {
-                currentInput += e.target.textContent;
-                displayPop(currentInput);
-                }
-            else if (e.target.classList.contains("operator")) {
-                if (operator !== "" && currentInput !== "") {
-                    num2 = currentInput;
-                    let result = operate(num1, num2, operator);
-                    displayPop(result);
-                    num1 = result;
-                    currentInput = "";
-                }
-                else {
-                    num1 = Number(currentInput);
-                    currentInput = "";
-                }
-            operator = e.target.textContent;
+    if (e.target.classList.contains("buttons")) {
+        if (e.target.classList.contains("number")) {
+            currentInput += e.target.textContent;
+            displayPop(currentInput);
         }
-            else if (e.target.classList.contains("equal")) {
+
+        else if (e.target.classList.contains("operator")) {
+            if (operator !== "" && currentInput !== "") {
                 num2 = Number(currentInput);
-
-                if (operator === "÷" && num2 === 0) {
-                    displayPop("Nice try, Einstein.");
-                    num1 = "";
-                    num2 = "";
-                    operator = "";
-                    currentInput = "";
-                    return; 
-                    }
-
-                result = operate(num1, num2, operator);
+                let result = operate(num1, num2, operator);
+                screen.textContent = "";
                 displayPop(result);
-
                 num1 = result;
                 currentInput = "";
+            } else {
+                num1 = Number(currentInput);
+                currentInput = "";
             }
+            operator = e.target.textContent;
         }
-    });
+
+        else if (e.target.classList.contains("equal")) {
+            num2 = Number(currentInput);
+
+            if (operator === "÷" && num2 === 0) {
+                screen.textContent = "";
+                displayPop("Nice try, Einstein.");
+                num1 = "";
+                num2 = "";
+                operator = "";
+                currentInput = "";
+                return;
+            }
+
+            let result = operate(num1, num2, operator);
+            screen.textContent = "";
+            displayPop(result);
+            num1 = result;
+            currentInput = "";
+        }
+    }
+});
+
 
     const clearBtn = document.querySelector(".clear")
 
