@@ -21,16 +21,16 @@ let operator;
 
 function operate(n1, n2, op) {
     if(op === "+") {
-       return add(n1, n2);
+    return add(n1, n2);
     }
     else if(op === "-") {
-       return subtract(n1, n2);
+    return subtract(n1, n2);
     }
     else if(op === "x") {
         return multiply(n1, n2);
     }
     else {
-       return  division(n1, n2);
+    return  division(n1, n2);
     }
 }
 
@@ -50,15 +50,15 @@ buttons.addEventListener("click", (e) => {
                 displayPop(currentInput);
                 }
             else if (e.target.classList.contains("operator")) {
-                num1 = currentInput;
+                num1 = Number(currentInput);
                 operator = e.target.textContent;
                 currentInput = "";
-                console.log(operator, num1)}
+                console.log(num1, operator)}
             else if (e.target.classList.contains("equal")) {
-                num2 = currentInput;
+                num2 = Number(currentInput);
                 let result = operate(num1, num2, operator);
                 displayPop(result)
-                console.log(result);
+                console.log(num2, result);
             }
         }
     });
