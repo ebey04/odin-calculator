@@ -41,8 +41,23 @@ function displayPop(digit) {
 }
 
 const buttons = document.getElementById("btns");
+let currentInput = "";
 
 buttons.addEventListener("click", (e) => {
         if (e.target.classList.contains("buttons")) {
-        displayPop(e.target.textContent)}
+            if (e.target.classList.contains("number")) {
+                currentInput += e.target.textContent;
+                displayPop(currentInput);
+                }
+            else if (e.target.classList.contains("operator")) {
+                num1 = currentInput;
+                operator = e.target.textContent;
+                currentInput = "";
+                7}
+            else if (e.target.classList.contains("equal")) {
+                num2 = currentInput;
+                let result = operate(num1, num2, operator);
+                displayPop(result);
+            }
+        }
     });
