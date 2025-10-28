@@ -39,3 +39,10 @@ const screen = document.getElementById("screen");
 function displayPop(digit) {
     screen.textContent = screen.textContent + digit;
 }
+
+const buttons = document.getElementById("btns");
+
+buttons.addEventListener("click", (e) => {
+        if (e.target.classList.contains("buttons")) {
+        displayPop(e.target.textContent)}
+    });
