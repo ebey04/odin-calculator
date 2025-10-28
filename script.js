@@ -83,7 +83,7 @@ buttons.addEventListener("click", (e) => {
 
             let result = operate(num1, num2, operator);
             screen.textContent = "";
-            displayPop(result);
+            displayPop(result.toFixed(4));
             num1 = "";
             currentInput = "";
             num2 ="";
