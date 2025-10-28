@@ -1,3 +1,16 @@
+/* DOM ELEMENTS */
+const clearBtn = document.querySelector(".clear");
+const screen = document.getElementById("screen");
+const buttons = document.getElementById("btns");
+
+/* GLOBAL VARIABLES */
+
+let currentInput = "";
+let num1 = "";
+let num2 = "";
+let operator = ""; 
+
+/* FUNCTIONS */
 
 function add(a, b) {
     return a + b;
@@ -14,11 +27,6 @@ function multiply(a, b) {
 function division(a, b) {
     return a / b;
 }
-
-let num1 = "";
-let num2 = "";
-let operator = ""; 
-
 function operate(n1, n2, op) {
     n1 = Number(n1);
     n2 = Number(n2);
@@ -37,14 +45,11 @@ function operate(n1, n2, op) {
     }
 }
 
-const screen = document.getElementById("screen");
-
 function displayPop(digit) {
     screen.textContent = digit;
 }
 
-const buttons = document.getElementById("btns");
-let currentInput = "";
+/* EVENT LISTENERS */
 
 buttons.addEventListener("click", (e) => {
     if (e.target.classList.contains("buttons")) {
@@ -94,46 +99,42 @@ buttons.addEventListener("click", (e) => {
 });
 
 document.addEventListener("keydown", (e) => {
-  if ((e.key >= "0" && e.key <= "9") || e.key === ".") {
+    if ((e.key >= "0" && e.key <= "9") || e.key === ".") {
     currentInput += e.key;
     displayPop(currentInput);
-  }
-  else if (["+", "-", "*", "/"].includes(e.key)) {
+    }
+    else if (["+", "-", "*", "/"].includes(e.key)) {
     if (operator !== "" && currentInput !== "") {
-      num2 = Number(currentInput);
-      let result = operate(num1, num2, operator);
-      screen.textContent = "";
-      displayPop(result);
-      num1 = result;
-      currentInput = "";
+        num2 = Number(currentInput);
+        let result = operate(num1, num2, operator);
+        screen.textContent = "";
+        displayPop(result);
+        num1 = result;
+        currentInput = "";
     } else {
-      num1 = Number(currentInput);
-      currentInput = "";
+        num1 = Number(currentInput);
+        currentInput = "";
     }
     operator = e.key; 
-  }
-  else if (e.key === "Enter" || e.key === "=") {
+    }
+    else if (e.key === "Enter" || e.key === "=") {
     num2 = Number(currentInput);
     let result = operate(num1, num2, operator);
     screen.textContent = "";
     displayPop(result);
     num1 = result;
     currentInput = "";
-  }
-  else if (e.key === "Escape") {
+    }
+    else if (e.key === "Escape") {
     screen.textContent = "";
     num1 = num2 = operator = currentInput = "";
-  }
+    }
 });
 
-
-
-    const clearBtn = document.querySelector(".clear")
-
-    clearBtn.addEventListener("click", (e) => {
-        screen.textContent = " ";
-        currentInput = "";
-        num1 = "";
-        num2 = "";
-        operator = "";
-    })
+clearBtn.addEventListener("click", (e) => {
+    screen.textContent = " ";
+    currentInput = "";
+    num1 = "";
+    num2 = "";
+    operator = "";
+})
