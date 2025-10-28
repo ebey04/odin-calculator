@@ -93,6 +93,40 @@ buttons.addEventListener("click", (e) => {
     }
 });
 
+document.addEventListener("keydown", (e) => {
+  if ((e.key >= "0" && e.key <= "9") || e.key === ".") {
+    currentInput += e.key;
+    displayPop(currentInput);
+  }
+  else if (["+", "-", "*", "/"].includes(e.key)) {
+    if (operator !== "" && currentInput !== "") {
+      num2 = Number(currentInput);
+      let result = operate(num1, num2, operator);
+      screen.textContent = "";
+      displayPop(result);
+      num1 = result;
+      currentInput = "";
+    } else {
+      num1 = Number(currentInput);
+      currentInput = "";
+    }
+    operator = e.key; 
+  }
+  else if (e.key === "Enter" || e.key === "=") {
+    num2 = Number(currentInput);
+    let result = operate(num1, num2, operator);
+    screen.textContent = "";
+    displayPop(result);
+    num1 = result;
+    currentInput = "";
+  }
+  else if (e.key === "Escape") {
+    screen.textContent = "";
+    num1 = num2 = operator = currentInput = "";
+  }
+});
+
+
 
     const clearBtn = document.querySelector(".clear")
 
