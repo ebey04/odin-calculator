@@ -70,7 +70,7 @@ buttons.addEventListener("click", (e) => {
                 num2 = Number(currentInput);
 
                 if (operator === "÷" && num2 === 0) {
-                    displayPop("Stop trying to divide by zero, asshole!");
+                    displayPop("Nice try, Einstein.");
                     num1 = "";
                     num2 = "";
                     operator = "";
