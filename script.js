@@ -68,9 +68,21 @@ buttons.addEventListener("click", (e) => {
         }
             else if (e.target.classList.contains("equal")) {
                 num2 = Number(currentInput);
+
+                if (operator === "÷" && num2 === 0) {
+                    displayPop("Stop trying to divide by zero, asshole!");
+                    num1 = "";
+                    num2 = "";
+                    operator = "";
+                    currentInput = "";
+                    return; 
+                    }
+
                 result = operate(num1, num2, operator);
-                displayPop(result)
-                ;
+                displayPop(result);
+
+                num1 = result;
+                currentInput = "";
             }
         }
     });
