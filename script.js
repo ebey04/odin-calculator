@@ -15,11 +15,14 @@ function division(a, b) {
     return a / b;
 }
 
-let num1;
-let num2;
-let operator; 
+let num1 = "";
+let num2 = "";
+let operator = ""; 
 
 function operate(n1, n2, op) {
+    n1 = Number(n1);
+    n2 = Number(n2);
+
     if(op === "+") {
     return add(n1, n2);
     }
@@ -29,7 +32,7 @@ function operate(n1, n2, op) {
     else if(op === "x") {
         return multiply(n1, n2);
     }
-    else {
+    else if (op === "÷" || op === "/") {
     return  division(n1, n2);
     }
 }
@@ -50,15 +53,24 @@ buttons.addEventListener("click", (e) => {
                 displayPop(currentInput);
                 }
             else if (e.target.classList.contains("operator")) {
-                num1 = Number(currentInput);
-                operator = e.target.textContent;
-                currentInput = "";
-                console.log(num1, operator)}
+                if (operator !== "" && currentInput !== "") {
+                    num2 = currentInput;
+                    let result = operate(num1, num2, operator);
+                    displayPop(result);
+                    num1 = result;
+                    currentInput = "";
+                }
+                else {
+                    num1 = Number(currentInput);
+                    currentInput = "";
+                }
+            operator = e.target.textContent;
+        }
             else if (e.target.classList.contains("equal")) {
                 num2 = Number(currentInput);
-                let result = operate(num1, num2, operator);
+                result = operate(num1, num2, operator);
                 displayPop(result)
-                console.log(num2, result);
+                ;
             }
         }
     });
