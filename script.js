@@ -36,6 +36,6 @@ function operate(n1, n2, op) {
 
 const screen = document.getElementById("screen");
 
-function displayPop() {
-    screen.textContent = 
+function displayPop(digit) {
+    screen.textContent = screen.textContent + digit;
 }
