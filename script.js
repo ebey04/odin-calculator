@@ -84,8 +84,11 @@ buttons.addEventListener("click", (e) => {
             let result = operate(num1, num2, operator);
             screen.textContent = "";
             displayPop(result);
-            num1 = result;
+            num1 = "";
             currentInput = "";
+            num2 ="";
+            result = "";
+            operator = "";
         }
     }
 });
