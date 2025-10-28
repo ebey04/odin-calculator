@@ -37,7 +37,7 @@ function operate(n1, n2, op) {
 const screen = document.getElementById("screen");
 
 function displayPop(digit) {
-    screen.textContent = screen.textContent + digit;
+    screen.textContent = digit;
 }
 
 const buttons = document.getElementById("btns");
@@ -53,11 +53,22 @@ buttons.addEventListener("click", (e) => {
                 num1 = currentInput;
                 operator = e.target.textContent;
                 currentInput = "";
-                7}
+                console.log(operator, num1)}
             else if (e.target.classList.contains("equal")) {
                 num2 = currentInput;
                 let result = operate(num1, num2, operator);
-                displayPop(result);
+                displayPop(result)
+                console.log(result);
             }
         }
     });
+
+    const clearBtn = document.querySelector(".clear")
+
+    clearBtn.addEventListener("click", (e) => {
+        screen.textContent = " ";
+        currentInput = "";
+        num1 = "";
+        num2 = "";
+        operator = "";
+    })
