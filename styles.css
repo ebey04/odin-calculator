@@ -46,12 +46,12 @@
     font-size: 2.5rem;
 }
 
-#btns{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 25px;
-    width: 75%;
-    margin: 2rem;
+#btns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 10px;
+  width: 90%;
+  margin: 1rem auto;
 }
 
 .buttons:hover, .clear:hover{
